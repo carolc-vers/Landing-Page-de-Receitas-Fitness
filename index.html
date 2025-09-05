@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livro de Receitas Fitness</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif;}
+    body {background: #f9f9f9; color: #333; line-height: 1.6;}
+    header {background: linear-gradient(135deg, #56ab2f, #a8e063); color: white; text-align: center; padding: 60px 20px;}
+    header h1 {font-size: 2.5rem; margin-bottom: 10px; animation: fadeDown 1.5s ease;}
+    header p {font-size: 1.2rem; opacity: 0.9;}
+
+    section {padding: 60px 20px; max-width: 1000px; margin: auto;}
+    section h2 {text-align: center; margin-bottom: 20px; font-size: 2rem; color: #56ab2f;}
+    section p {text-align: center; max-width: 800px; margin: 10px auto;}
+
+    .benefits, .indicated, .bonus, .offer, .before-after {display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));}
+    .card {background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s;}
+    .card:hover {transform: translateY(-5px);}
+
+    .cta {text-align: center; margin-top: 40px;}
+    .cta button {background: #56ab2f; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 30px; cursor: pointer; transition: background 0.3s, transform 0.3s;}
+    .cta button:hover {background: #3d7a22; transform: scale(1.05);}
+
+    footer {background: #222; color: #fff; text-align: center; padding: 20px; margin-top: 40px;}
+
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-30px);} 
+      to {opacity: 1; transform: translateY(0);}
+    }
+    .hidden {opacity: 0; transform: translateY(40px); transition: all 0.8s ease;}
+    .show {opacity: 1; transform: translateY(0);}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Livro de Receitas Fitness</h1>
+    <p>Transforme sua alimentação com receitas práticas, saudáveis e deliciosas!</p>
+  </header>
+
+  <section class="hidden">
+    <h2>Problema e Solução</h2>
+    <p>Cansado de dietas sem sabor? Nosso livro mostra que é possível emagrecer ou ganhar massa comendo bem e sem monotonia.</p>
+  </section>
+
+  <section class="benefits hidden">
+    <h2>Benefícios</h2>
+    <div class="card">✅ Receitas práticas em até 20 minutos</div>
+    <div class="card">✅ Ingredientes simples e acessíveis</div>
+    <div class="card">✅ Ideal para quem busca saúde e sabor</div>
+  </section>
+
+  <section class="indicated hidden">
+    <h2>Para quem é Indicado</h2>
+    <div class="card">➡️ Pessoas que querem perder peso</div>
+    <div class="card">➡️ Quem deseja ganhar massa muscular</div>
+    <div class="card">➡️ Quem quer manter uma vida saudável sem abrir mão do sabor</div>
+  </section>
+
+  <section class="hidden">
+    <h2>Quem sou eu</h2>
+    <p>Sou [Seu Nome], apaixonado por gastronomia e nutrição. Desenvolvi este livro para ajudar você a transformar sua rotina alimentar.</p>
+  </section>
+
+  <section class="bonus hidden">
+    <h2>Bônus</h2>
+    <div class="card">🎁 Lista de compras saudável</div>
+    <div class="card">🎁 Guia de substituições inteligentes</div>
+  </section>
+
+  <section class="offer hidden">
+    <h2>Oferta Especial</h2>
+    <p><strong>De R$ 97 por apenas R$ 47!</strong></p>
+    <div class="cta">
+      <button>Quero meu Livro!</button>
+    </div>
+  </section>
+
+  <section class="before-after hidden">
+    <h2>Antes e Depois</h2>
+    <div class="card">📸 Resultados reais de quem seguiu nossas receitas</div>
+    <div class="card">📸 Transformações incríveis na saúde e bem-estar</div>
+  </section>
+
+  <section class="hidden">
+    <h2>Chamada Final</h2>
+    <p>Não perca tempo! Garanta já o seu exemplar e dê o primeiro passo para uma vida mais saudável e saborosa!</p>
+    <div class="cta">
+      <button>Comprar Agora</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Livro de Receitas Fitness - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Animações de entrada ao rolar
+    const sections = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {threshold: 0.2});
+
+    sections.forEach(sec => observer.observe(sec));
+
+    // Scroll suave ao clicar nos botões
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+      });
+    });
+  </script>
+
+</body>
+</html>
